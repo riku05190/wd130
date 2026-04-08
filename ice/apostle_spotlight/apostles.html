@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apostles Spotlights</title>
+    <style>
+      body {
+        background-color: #e8eced;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .spotlight-card {
+        background-image: url("images/christus.webp");
+        background-size: cover;
+        background-position: center; /* or left center? */
+        width: 1000px;
+        height: 700px; /* Fixed height to match aspect ratio roughly */
+        border: 12px solid #000000;
+        border-radius: 50px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-end; /* Align content to the right */
+        align-items: center; /* Vertically center */
+      }
+
+      .content-wrapper {
+        width: 60%; /* Occupy right side */
+        padding-right: 50px; /* Spacing from right edge */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        animation: contentSlideIn 1s ease-out;
+      }
+
+      @keyframes contentSlideIn {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      h2 {
+        font-size: 32px;
+        margin: 0 0 20px 0;
+        font-weight: normal;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      h3 {
+        font-size: 24px;
+        margin: 30px 0 20px 0; /* Spacing between sections */
+        font-weight: normal;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      .member-img {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        border: 5px solid white;
+        object-fit: cover;
+        display: block;
+        background-color: #ccc; /* Fallback */
+        transition: all 0.4s ease;
+      }
+
+      .member-img:hover {
+        transform: scale(1.15);
+        border-color: #ffd700;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      }
+
+      .presidency-flex {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        transition: all 0.3s;
+      }
+
+      /* Spotlight Focus Effect: Dim siblings */
+      .presidency-flex:hover .member-img:not(:hover) {
+        opacity: 0.5;
+        transform: scale(0.95);
+        filter: grayscale(80%);
+      }
+
+      .apostles-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        transition: all 0.3s;
+      }
+
+      /* Spotlight Focus Effect: Dim siblings */
+      .apostles-grid:hover .member-img:not(:hover) {
+        opacity: 0.5;
+        transform: scale(0.95);
+        filter: grayscale(80%);
+      }
+
+      /* Placeholder style for Nelson */
+      .placeholder-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #555;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="spotlight-card">
+      <div class="content-wrapper">
+        <h2>First Presidency</h2>
+        <div class="presidency-flex">
+          <img
+            src="images/eyring.webp"
+            alt="President Eyring"
+            class="member-img"
+            title="President Henry B. Eyring"
+          />
+          <!-- Missing Image for President Nelson -->
+          <img
+            src="images/oaks.webp"
+            alt="President Oaks"
+            class="member-img"
+            title="President Dallin H. Oaks"
+          />
+          <img
+            src="images/christofferson.webp"
+            alt="President Oaks"
+            class="member-img"
+            title="President Dallin H. Oaks"
+          />
+        </div>
+
+        <h3>Quorum of the Twelve Apostles</h3>
+        <div class="apostles-grid">
+          <img
+            src="images/holland.webp"
+            alt="Jeffrey R. Holland"
+            class="member-img"
+            title="Jeffrey R. Holland"
+          />
+          <img
+            src="images/uchtdorf.webp"
+            alt="Dieter F. Uchtdorf"
+            class="member-img"
+            title="Dieter F. Uchtdorf"
+          />
+          <img
+            src="images/bednar.webp"
+            alt="David A. Bednar"
+            class="member-img"
+            title="David A. Bednar"
+          />
+          <img
+            src="images/cook.webp"
+            alt="Quentin L. Cook"
+            class="member-img"
+            title="Quentin L. Cook"
+          />
+
+          <img
+            src="images/christofferson.webp"
+            alt="D. Todd Christofferson"
+            class="member-img"
+            title="D. Todd Christofferson"
+          />
+          <img
+            src="images/anderson.webp"
+            alt="Neil L. Andersen"
+            class="member-img"
+            title="Neil L. Andersen"
+          />
+          <img
+            src="images/rasband.webp"
+            alt="Ronald A. Rasband"
+            class="member-img"
+            title="Ronald A. Rasband"
+          />
+          <img
+            src="images/stevenson.webp"
+            alt="Gary E. Stevenson"
+            class="member-img"
+            title="Gary E. Stevenson"
+          />
+
+          <img
+            src="images/renlund.webp"
+            alt="Dale G. Renlund"
+            class="member-img"
+            title="Dale G. Renlund"
+          />
+          <img
+            src="images/gong.webp"
+            alt="Gerrit W. Gong"
+            class="member-img"
+            title="Gerrit W. Gong"
+          />
+          <img
+            src="images/soares.webp"
+            alt="Ulisses Soares"
+            class="member-img"
+            title="Ulisses Soares"
+          />
+          <img
+            src="images/kearon.webp"
+            alt="Patrick Kearon"
+            class="member-img"
+            title="Patrick Kearon"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

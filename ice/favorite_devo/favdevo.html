@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Favorite Devotionals</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-image">
+        <h1>My Favorite<br>Devotionals</h1>
+      </div>
+    </header>
+    <main>
+      <div class="content-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Speaker</th>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>David A. Bednar</td>
+              <td>The Hearts of the Children Shall Turn</td>
+              <td>BYU-Idaho Center</td>
+              <td>2011</td>
+            </tr>
+            <tr>
+              <td> Jeffrey R. Holland</td>
+              <td>Remember Lot's Wife</td>
+              <td>Hart Auditorium</td>
+              <td>2009</td>
+            </tr>
+            <tr>
+              <td>Henry B. Eyring</td>
+              <td>A Priceless Heritage</td>
+              <td>Hart Auditorium</td>
+              <td>2001</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <form>
+          <fieldset>
+            <legend>Add a New Devotional </legend>
+            <label for="speaker">Speaker:
+              <input type="text" id="speaker" name="speaker" required>
+            </label>
+            <label for="title">Title:  
+              <input type="text" id="title" name="title" required>
+            </label>
+            <label for="location">Location:          
+              <input type="text" id="location" name="location" required>
+            </label>
+            <label for="year">Year:
+              <input type="number" id="year" name="year" required>
+            </label>
+            <button type="submit">Add Devotional </button>
+          </fieldset>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2026 My Favorite Devotionals | WDD 130 ICE Challenge</p>
+    </footer>
+  </div>
+</body>
+</html>

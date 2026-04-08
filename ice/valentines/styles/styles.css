@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* =========================================
+   Variables & Theme (Pocket Monster Style)
+   ========================================= */
+:root {
+    --poke-red:     #EE1515;
+    --poke-white:   #F0F0F0;
+    --poke-black:   #222224;
+    --poke-blue:    #3B4CCA;
+    --poke-yellow:  #FFDE00;
+    
+    --screen-bg:    #f8f9fa;
+    --text-color:   #222224;
+    
+    --border-width: 4px;
+    --font-pixel:   'Press Start 2P', cursive;
+}
+
+/* =========================================
+   Base Setup
+   ========================================= */
+body {
+    background-color: var(--poke-black);
+    /* Scanline effect like an old game screen (optional) */
+    background-image: repeating-linear-gradient(
+        transparent 0px,
+        transparent 2px,
+        rgba(0,0,0,0.1) 2px,
+        rgba(0,0,0,0.1) 4px
+    );
+    font-family: var(--font-pixel);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    image-rendering: pixelated; /* Display pixel art clearly */
+}
+
+/* =========================================
+   Pokedex Container
+   ========================================= */
+#wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: var(--poke-red);
+    padding: 20px;
+    border: var(--border-width) solid var(--poke-black);
+    border-radius: 10px 10px 50px 10px; /* Pokedex-like shape */
+    box-shadow: 
+        inset 10px 10px rgba(255,255,255,0.3), /* Highlight */
+        inset -10px -10px rgba(0,0,0,0.2),     /* Shadow */
+        0 20px 0 rgba(0,0,0,0.5);              /* Main body shadow */
+    position: relative;
+}
+
+/* Pokedex lamp decoration (created with pseudo-element) */
+#wrapper::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    background: #3498db;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #3498db;
+    z-index: 10;
+}
+
+/* Main screen area */
+main {
+    background-color: #98c393; /* GameBoy-style green LCD color, or white */
+    background: var(--screen-bg);
+    border: var(--border-width) solid var(--poke-black);
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 60px; /* Top decorative space */
+    box-shadow: inset 5px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* =========================================
+   Typography (Typing Animation)
+   ========================================= */
+h1 {
+    font-size: 1.5rem; /* Size adjustment for pixel font */
+    color: var(--poke-black);
+    text-transform: uppercase;
+    text-shadow: 2px 2px var(--poke-white);
+    margin: 0 auto 40px auto;
+    line-height: 1.4;
+    
+    /* Typing settings */
+    display: block;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 10px solid var(--poke-black); /* Block-style cursor */
+    
+    /* 
+       Cycle settings: 
+       6s total cycle time.
+       steps(16): Adjusted for "Happy Valentines" (16 characters).
+    */
+    animation: 
+        typing-cycle 6s steps(16) infinite,
+        blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing-cycle {
+    0%, 10% { width: 0; }          /* Wait */
+    40%, 60% { width: 16ch; }      /* Typing complete / Wait */
+    90%, 100% { width: 0; }        /* Deletion complete / Wait */
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+h2 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: var(--poke-blue);
+}
+
+p {
+    font-size: 0.8rem;
+    color: var(--poke-black);
+}
+
+/* =========================================
+   Navigation (Menu Style)
+   ========================================= */
+header {
+    margin-bottom: 20px;
+    text-align: right; /* Right-align menu (Pokedex style) */
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end; /* Right-align */
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 0 40px 0 0;
+    margin: 0;
+}
+
+nav li {
+    background: var(--poke-white);
+    color: var(--poke-black);
+    padding: 10px 15px;
+    border: var(--border-width) solid var(--poke-black);
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3); /* 3D button effect */
+    transition: transform 0.1s;
+    position: relative;
+}
+
+/* Indicator arrow "▶" appearing on hover */
+nav li:hover {
+    background: var(--poke-yellow);
+    transform: translate(2px, 2px); /* Click effect */
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+nav li:hover::before {
+    content: "▶";
+    position: absolute;
+    left: -20px;
+    color: var(--poke-yellow);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* =========================================
+   Image (Sprite Style)
+   ========================================= */
+main img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border: var(--border-width) solid var(--poke-black);
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 40px;
+    
+    /* Hack for pixelated look */
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.2);
+}
+
+main img:hover {
+    /* Flashing animation like the start of a battle */
+    animation: flash 0.5s linear;
+}
+
+@keyframes flash {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* =========================================
+   Sections (Message Windows)
+   ========================================= */
+/* Grid layout adjustments */
+/* HTML structure: section is directly under main. main is text-align:center */
+
+/* Treating sections as a wrapper for side-by-side alignment */
+/* Align using inline-block */
+section {
+    display: inline-block;
+    width: 30%;
+    min-width: 250px;
+    vertical-align: top;
+    text-align: left;
+    margin: 10px;
+    
+    /* RPG message window style */
+    background: #fff;
+    border: var(--border-width) solid var(--poke-black);
+    border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Make window corners look like double lines (CSS border technique) */
+section {
+    box-shadow: 
+        inset 0 0 0 2px #fff,
+        inset 0 0 0 4px var(--poke-black); 
+    /* 4px black outer border, 2px white inner, then 4px black line again */
+    border: 4px solid var(--poke-black); /* Outer border */
+    padding: 20px; /* Inner padding */
+}
+
+/* Hover action */
+section:hover {
+    background-color: #f0f8ff;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: var(--border-width) dashed var(--poke-black);
+    color: var(--poke-black);
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 800px) {
+    #wrapper {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    nav ul {
+        justify-content: center;
+        padding-right: 0;
+    }
+    
+    section {
+        width: 100%;
+        display: block;
+        margin: 20px 0;
+    }
+    
+    h1 {
+        font-size: 1.2rem;
+    }
+}

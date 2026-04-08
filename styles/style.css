@@ -1,0 +1,140 @@
+/* styles/style.css */
+
+/* 要素ごとのセレクタ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    /* Gridを使用してレイアウトをスタイルする */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #f39c12;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* HomeページのGridレイアウト */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.portfolio-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.portfolio-item-bg {
+    height: 200px;
+    /* 要素を装飾するために background プロパティを使用する */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Background image examples */
+.item-1 { background-image: url('../images/logo.jpg'); }
+.item-2 { background-image: url('../images/Picture1.png'); }
+.item-3 { background-color: #3498db; }
+
+.portfolio-content {
+    padding: 1.5rem;
+}
+
+/* Hero Section (装飾用の背景画像) */
+.hero {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/Picture1.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    color: white;
+}
+
+/* AboutページのGridレイアウト */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.about-grid img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ICEリストのGridレイアウト */
+.ice-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.ice-item {
+    background: white;
+    padding: 1rem;
+    border-left: 5px solid #3498db;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
